@@ -112,10 +112,15 @@ Samsung,Galaxy S26,256GB,Black,#2C2C2E,https://shop.vodacom.no/.../p1006442059,S
 **Hvordan produktbildet hentes:** når en farge velges, henter
 widgeten variantens egen produktside (samme-origin, samme prinsipp
 som prisvisningen) og leser ut bilde-URL-en direkte fra siden sitt
-eget markup. Feiler dette (typisk ved lokal testing, siden det krever
-samme-origin) faller den tilbake til et eventuelt `Bilde`-felt i
-CSV-en, deretter til ingenting - aldri et permanent ødelagt
-bilde-ikon.
+eget markup. Feiler dette (samme-origin kreves, så dette skjer ALLTID
+ved lokal testing og ved forhåndsvisning direkte på GitHub Pages -
+begge har et annet domene enn shop.vodacom.no) faller den tilbake til
+et eventuelt `Bilde`-felt i CSV-en, deretter til ingenting - aldri et
+permanent ødelagt bilde-ikon. Det ekte webshop-bildet kan derfor kun
+bekreftes å fungere når siden faktisk kjører limt inn på
+shop.vodacom.no - en forhåndsvisning på GitHub Pages vil alltid vise
+enten `Bilde`-fallbacken (hvis satt) eller ingenting, uansett hvor
+riktig koden er.
 
 **Legge til/endre ekstrautstyr (Deksel, Lommebok, Skjermbeskytter,
 Lader):** rediger `data/telefon-tilbehor.csv`. Kolonner:
