@@ -228,8 +228,8 @@ GitHub Pages). Dobbeltsjekk før publisering:
 
 ```js
 window.PV_CONFIG = {
-  dataBaseUrl: "https://linga42.github.io/Produkt-telefonvelger/data/",
-  imgBaseUrl: "https://linga42.github.io/Produkt-telefonvelger/bilder/"
+  dataBaseUrl: "https://linga42.github.io/Produkt-telefonvelger-Dyn-B-P-visning/data/",
+  imgBaseUrl: "https://linga42.github.io/Produkt-telefonvelger-Dyn-B-P-visning/bilder/"
 };
 ```
 
@@ -237,7 +237,7 @@ window.PV_CONFIG = {
 
 Endringer er normalt live innen ca. 10 minutter etter push (GitHub
 Pages sin egen cache). Sjekk gjerne direkte på
-`https://linga42.github.io/Produkt-telefonvelger/` før du limer noe inn
+`https://linga42.github.io/Produkt-telefonvelger-Dyn-B-P-visning/` før du limer noe inn
 i Webmercs, så du vet at siden i seg selv fungerer.
 
 ### 4. Lim inn i Webmercs
@@ -259,18 +259,18 @@ forenklet til én enkelt div:
   <div class="pv-toolbar" id="pv-toolbar"></div>
   <div id="pv-app"></div>
 </div>
-<link rel="stylesheet" href="https://linga42.github.io/Produkt-telefonvelger/styles/theme.css">
-<link rel="stylesheet" href="https://linga42.github.io/Produkt-telefonvelger/styles/engine.css">
-<link rel="stylesheet" href="https://linga42.github.io/Produkt-telefonvelger/styles/telefon-konfigurator.css">
+<link rel="stylesheet" href="https://linga42.github.io/Produkt-telefonvelger-Dyn-B-P-visning/styles/theme.css">
+<link rel="stylesheet" href="https://linga42.github.io/Produkt-telefonvelger-Dyn-B-P-visning/styles/engine.css">
+<link rel="stylesheet" href="https://linga42.github.io/Produkt-telefonvelger-Dyn-B-P-visning/styles/telefon-konfigurator.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
-<script src="https://linga42.github.io/Produkt-telefonvelger/config.js"></script>
-<script src="https://linga42.github.io/Produkt-telefonvelger/engine/produkt-id.js"></script>
-<script src="https://linga42.github.io/Produkt-telefonvelger/engine/pricing.js"></script>
-<script src="https://linga42.github.io/Produkt-telefonvelger/engine/produktbilde.js"></script>
-<script src="https://linga42.github.io/Produkt-telefonvelger/engine/cart.js"></script>
-<script src="https://linga42.github.io/Produkt-telefonvelger/engine/kontrast.js"></script>
-<script src="https://linga42.github.io/Produkt-telefonvelger/engine/telefon-konfigurator.js"></script>
-<script src="https://linga42.github.io/Produkt-telefonvelger/engine/render.js"></script>
+<script src="https://linga42.github.io/Produkt-telefonvelger-Dyn-B-P-visning/config.js"></script>
+<script src="https://linga42.github.io/Produkt-telefonvelger-Dyn-B-P-visning/engine/produkt-id.js"></script>
+<script src="https://linga42.github.io/Produkt-telefonvelger-Dyn-B-P-visning/engine/pricing.js"></script>
+<script src="https://linga42.github.io/Produkt-telefonvelger-Dyn-B-P-visning/engine/produktbilde.js"></script>
+<script src="https://linga42.github.io/Produkt-telefonvelger-Dyn-B-P-visning/engine/cart.js"></script>
+<script src="https://linga42.github.io/Produkt-telefonvelger-Dyn-B-P-visning/engine/kontrast.js"></script>
+<script src="https://linga42.github.io/Produkt-telefonvelger-Dyn-B-P-visning/engine/telefon-konfigurator.js"></script>
+<script src="https://linga42.github.io/Produkt-telefonvelger-Dyn-B-P-visning/engine/render.js"></script>
 ```
 
 Dette er den ANBEFALTE måten: siden kjører da direkte på
@@ -286,7 +286,7 @@ som en ren "se produkter og klikk deg videre"-side:
 
 ```html
 <iframe
-  src="https://linga42.github.io/Produkt-telefonvelger/index.html"
+  src="https://linga42.github.io/Produkt-telefonvelger-Dyn-B-P-visning/index.html"
   style="width:100%; border:0; min-height:1200px;"
   title="Produktvelger">
 </iframe>
