@@ -1,0 +1,14 @@
+{
+  "sidetittel": "Bygg utstyrspakken din",
+  "introTekst": "Velg antall og legg rett i handlekurven.",
+  "sokPlaceholder": "Søk etter produkt eller modell...",
+
+  "_kommentar_gruppeRekkefolge": "Bestemmer rekkefølgen fanene vises i. Nye grupper i produkter.csv som IKKE står i denne listen dukker automatisk opp til slutt, i den rekkefølgen de først opptrer i CSV-filen. Du trenger altså ikke oppdatere denne listen for at en ny gruppe skal fungere - bare gjør det hvis du vil styre hvor den skal ligge. 'Telefon' er ikke CSV-basert (egen widget, se telefon-konfigurator.js) men følger samme rekkefølge-liste som resten.",
+  "gruppeRekkefolge": [
+    "Telefon",
+    "Datamaskiner",
+    "Skjermer",
+    "Ekstrautstyr",
+    "Veske / Sekk"
+  ]
+}

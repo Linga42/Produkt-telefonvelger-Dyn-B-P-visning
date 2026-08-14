@@ -1,0 +1,385 @@
+/* ==========================================================
+   Telefon-konfigurator – stil (konsolidert).
+   Alle klasser har tk-prefiks for aa ikke kollidere med
+   webshoppens egen CSS. Ingen egen bakgrunn/ramme -
+   konfiguratoren glir inn i siden den staar paa.
+
+   Skalert for aa matche forsidens store typografi.
+   ========================================================== */
+
+/* ---- Rot og tittel ---- */
+.tk-konfigurator {
+  font-family: Arial, sans-serif;
+  background: transparent;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 12px;
+  box-sizing: border-box;
+}
+
+.tk-konfigurator * {
+  box-sizing: border-box;
+}
+
+.tk-tittel {
+  font-size: 3rem;
+  margin: 0 auto 32px auto;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #4DAD35;
+  display: table;
+  text-align: center;
+}
+
+/* ---- To kolonner med fremdriftsstrek mellom ---- */
+.tk-layout {
+  display: flex;
+  align-items: stretch;
+  gap: 48px;
+  padding: 20px 0;
+}
+
+.tk-venstre {
+  flex: 0 0 48%;
+  text-align: left;
+}
+
+.tk-strek {
+  width: 3px;
+  background: #e2e2e2;
+  border-radius: 2px;
+  align-self: stretch;
+  margin: -16px 0;
+  overflow: hidden;
+}
+
+.tk-strek-fyll {
+  --tk-fremdrift: 0;
+  width: 100%;
+  height: 100%;
+  background: #4DAD35;
+  border-radius: 2px;
+  transform: scaleY(var(--tk-fremdrift));
+  transform-origin: top;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tk-hoyre {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---- Valgseksjoner ---- */
+.tk-seksjon {
+  margin-bottom: 30px;
+}
+
+.tk-seksjon h3 {
+  font-size: 1.4rem;
+  color: #333;
+  margin: 0 0 14px 0;
+}
+
+.tk-gruppe {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: flex-start;
+}
+
+/* Gjelder KUN direkte barn (merke/modell/kapasitet/farge) -
+   ikke nestede knapper i tilbehoersradene */
+.tk-gruppe > button {
+  flex: 0 1 auto;
+  min-width: 130px;
+  padding: 14px 22px;
+  font-size: 1.15rem;
+  border: 2px solid #4DAD35;
+  border-radius: 4px;
+  background: #fff;
+  color: #4DAD35;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, transform 0.15s;
+}
+
+.tk-gruppe > button:hover {
+  transform: translateY(-2px);
+}
+
+.tk-gruppe > button.tk-valgt {
+  background: #4DAD35;
+  color: #fff;
+}
+
+.tk-gruppe > button.tk-farge {
+  border: 2px solid #999;
+}
+
+.tk-gruppe > button.tk-farge.tk-valgt {
+  outline: 3px solid #4DAD35;
+  outline-offset: 1px;
+}
+
+/* ---- Produktbilde ---- */
+.tk-bilde {
+  min-height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tk-bilde img {
+  max-height: 460px;
+  max-width: 100%;
+  mix-blend-mode: multiply;
+}
+
+/* ---- Antallsvelger (telefonkjoep) ---- */
+.tk-antall {
+  display: inline-flex;
+  align-items: stretch;
+  border: 2px solid #4DAD35;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.tk-antall-knapp {
+  width: 48px;
+  border: none;
+  background: #fff;
+  color: #4DAD35;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.tk-antall-knapp:hover {
+  background: #eef7ea;
+  transform: none;
+}
+
+.tk-antall-felt {
+  width: 64px;
+  border: none;
+  border-left: 2px solid #4DAD35;
+  border-right: 2px solid #4DAD35;
+  text-align: center;
+  font-size: 1.25rem;
+  font-family: inherit;
+  padding: 14px 4px;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.tk-antall-felt::-webkit-outer-spin-button,
+.tk-antall-felt::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* ---- Kjoep-rad ---- */
+#tk-handling {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+#tk-handling.tk-skjult {
+  display: none;
+}
+
+.tk-sok {
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 16px 70px;
+  background: #4DAD35;
+  color: #fff !important;
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: transform 0.15s, background 0.15s;
+}
+
+.tk-sok:hover:not(:disabled) {
+  transform: translateY(-2px);
+  background: #3a8a2b;
+}
+
+.tk-sok:disabled {
+  opacity: 0.7;
+  cursor: default;
+}
+
+.tk-sok.tk-kjopt {
+  background: #3a8a2b;
+}
+
+.tk-produktlenke {
+  color: #4DAD35;
+  font-size: 1.05rem;
+  text-decoration: underline;
+}
+
+/* ---- Ekstrautstyr: nedtonet ettertanke for mersalg.
+   Graatt i hvilemodus, groent ved interaksjon. Antallsboksene
+   har samme dimensjoner som hovedvelgeren (symmetri). ---- */
+.tk-tilbehor {
+  margin-top: 26px;
+  padding-top: 18px;
+  border-top: 1px solid #e6e6e6;
+}
+
+.tk-tilbehor h3 {
+  font-size: 1.05rem;
+  font-weight: normal;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 12px;
+}
+
+.tk-tilbehor .tk-gruppe {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.tk-tilbehor-rad {
+  display: flex;
+  align-items: stretch;
+  gap: 14px;
+}
+
+.tk-antall-liten {
+  border-color: #ccc;
+}
+
+.tk-antall-liten .tk-antall-knapp {
+  color: #888;
+  font-weight: normal;
+  font-size: 1.4rem;
+}
+
+.tk-antall-liten .tk-antall-knapp:hover {
+  background: #f2f2f2;
+}
+
+.tk-antall-liten .tk-antall-felt {
+  color: #555;
+  font-size: 1.15rem;
+  border-left-color: #ccc;
+  border-right-color: #ccc;
+}
+
+.tk-tilbehor-rad .tk-pakke {
+  /* Krav 6: litt mindre knapp enn før (var 12px 20px / 1.05rem), men
+     min-height holder klikkflaten på minst 44px - prosjektets
+     eksisterende tilgjengelighetsnivå (se .tk-antall-knapp/.tk-sok som
+     begge er >=44px høye) reduseres ikke. */
+  min-width: 180px;
+  min-height: 44px;
+  padding: 9px 16px;
+  font-size: 0.95rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+  color: #555;
+  cursor: pointer;
+  text-align: center;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+
+/* Pris for et enkelt tilbehørsprodukt (Krav 6) - mellom knappen og
+   "Se produktside"-lenken. Vises når prisen ble hentet, eller som
+   "Se pris i butikk"-tekst ved same-origin-feil (lokal testing). */
+.tk-tilbehor-pris {
+  align-self: center;
+  font-size: 0.95rem;
+  color: #333;
+  white-space: nowrap;
+}
+
+.tk-tilbehor-pris-lenke {
+  color: #4DAD35;
+  text-decoration: underline;
+}
+
+.tk-tilbehor-rad .tk-pakke:hover:not(:disabled) {
+  border-color: #4DAD35;
+  color: #4DAD35;
+}
+
+.tk-tilbehor-rad .tk-pakke:disabled {
+  cursor: default;
+}
+
+.tk-tilbehor-rad .tk-pakke.tk-kjopt {
+  border-color: #4DAD35;
+  background: #4DAD35;
+  color: #fff;
+}
+
+.tk-tilbehor-rad .tk-produktlenke {
+  align-self: center;
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+/* ---- Pris for valgt telefonmodell (Krav 4/5) ---- */
+.tk-pris {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #14181C;
+  margin: -14px 0 0 0;
+}
+
+.tk-pris-laster {
+  font-size: 1rem;
+  font-weight: normal;
+  color: #888;
+}
+
+.tk-pris-lenke {
+  font-size: 1.05rem;
+  font-weight: normal;
+  color: #4DAD35;
+  text-decoration: underline;
+}
+
+.tk-feil {
+  color: #C0392B;
+  font-size: 1.05rem;
+}
+
+/* ---- Skjuling ---- */
+.tk-skjult {
+  display: none;
+}
+
+/* ---- Smale skjermer: kolonnene stables ---- */
+@media (max-width: 760px) {
+  .tk-layout {
+    flex-direction: column;
+    gap: 24px;
+  }
+  .tk-venstre {
+    flex: 1 1 auto;
+  }
+  .tk-strek {
+    width: auto;
+    height: 3px;
+    margin: 0 -8px;
+  }
+  .tk-strek-fyll {
+    transform: scaleX(var(--tk-fremdrift));
+    transform-origin: left;
+  }
+  .tk-tittel {
+    font-size: 2.2rem;
+  }
+}

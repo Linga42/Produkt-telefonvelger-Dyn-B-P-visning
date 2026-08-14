@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Produktvelger</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="./styles/theme.css">
+<link rel="stylesheet" href="./styles/engine.css">
+<link rel="stylesheet" href="./styles/telefon-konfigurator.css">
+</head>
+<body>
+
+<div class="pv-container">
+  <header class="pv-header" id="pv-header"><!-- fylles av render.js --></header>
+  <div class="pv-toolbar" id="pv-toolbar"><!-- fylles av render.js --></div>
+  <div id="pv-app"><!-- grupper og produktkort fylles av render.js --></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+<script src="./engine/produkt-id.js"></script>
+<script src="./engine/pricing.js"></script>
+<script src="./engine/produktbilde.js"></script>
+<script src="./engine/cart.js"></script>
+<script src="./engine/kontrast.js"></script>
+<script src="./engine/telefon-konfigurator.js"></script>
+<script src="./engine/render.js"></script>
+
+</body>
+</html>

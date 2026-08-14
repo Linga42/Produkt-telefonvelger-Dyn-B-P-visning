@@ -1,0 +1,325 @@
+/*
+  ENGINE.CSS
+  ----------
+  Strukturell styling for komponentene. Bruker kun verdier fra
+  theme.css - endre utseende der, ikke her.
+*/
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+.pv-container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-5) var(--space-7);
+}
+
+/* --- Header --- */
+.pv-header {
+  margin-bottom: var(--space-6);
+}
+
+.pv-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 2.5vw, 2.4rem) !important;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0 0 var(--space-1) !important;
+  line-height: 1.2 !important;
+}
+
+.pv-intro {
+  color: var(--color-ink-soft);
+  font-size: 1.05rem !important;
+  margin: 0 !important;
+  line-height: 1.4 !important;
+}
+
+/* --- Verktøylinje: søk + faner --- */
+.pv-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  align-items: center;
+  margin: var(--space-5) 0 var(--space-6);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.pv-search {
+  position: relative;
+  flex: 1 1 260px;
+}
+
+.pv-search input {
+  width: 100%;
+  box-sizing: border-box !important;
+  padding: 11px 14px 11px 40px !important;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--color-ink);
+  background: var(--color-surface);
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-sm);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.pv-search input:focus-visible {
+  outline: none;
+  border-color: var(--color-brand);
+  box-shadow: 0 0 0 3px var(--color-brand-tint);
+}
+
+.pv-search svg {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  color: var(--color-ink-soft);
+  pointer-events: none;
+}
+
+.pv-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.pv-tab {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.9rem !important;
+  padding: 9px 18px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-line-strong);
+  background: var(--color-surface);
+  color: var(--color-ink-soft);
+  cursor: pointer;
+  margin: 0 !important;
+  line-height: 1.3 !important;
+  transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.pv-tab:hover { border-color: var(--color-brand); color: var(--color-ink); }
+
+.pv-tab.is-active {
+  background: var(--color-brand);
+  border-color: var(--color-brand);
+  color: #fff;
+}
+
+.pv-tab:focus-visible {
+  outline: 2px solid var(--color-brand-dark);
+  outline-offset: 2px;
+}
+
+/* --- Grupper --- */
+.pv-group {
+  margin-bottom: var(--space-6);
+}
+
+.pv-group.is-hidden { display: none; }
+
+.pv-group-title {
+  font-family: var(--font-display);
+  font-size: 1.3rem !important;
+  font-weight: 600;
+  margin: 0 0 var(--space-4) !important;
+  line-height: 1.3 !important;
+}
+
+.pv-subgroup-title {
+  font-family: var(--font-body);
+  font-size: 0.82rem !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-ink-soft);
+  margin: var(--space-4) 0 var(--space-3) !important;
+  line-height: 1.3 !important;
+}
+
+.pv-subgroup-title:first-of-type {
+  margin-top: 0;
+}
+
+.pv-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: var(--space-3);
+}
+
+/* --- Produktkort --- */
+.pv-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-fast);
+  display: flex;
+  flex-direction: column;
+}
+
+.pv-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--color-line-strong);
+}
+
+.pv-card:focus-visible {
+  outline: 2px solid var(--color-brand-dark);
+  outline-offset: 2px;
+}
+
+.pv-card.is-loading { opacity: 0.65; pointer-events: none; }
+
+.pv-card-accent {
+  height: 4px;
+  background: var(--color-brand);
+}
+
+.pv-card-body {
+  padding: var(--space-3);
+  flex: 1;
+}
+
+.pv-card-title {
+  font-family: var(--font-display);
+  font-size: 1.65rem !important;
+  font-weight: 600;
+  margin: 0 0 4px !important;
+  line-height: 1.25 !important;
+}
+
+.pv-card-model {
+  color: var(--color-ink-soft);
+  font-size: 1.2rem !important;
+  margin: 0 0 var(--space-3) !important;
+  line-height: 1.3 !important;
+}
+
+.pv-card-price {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 2rem !important;
+  font-weight: 600;
+  color: var(--color-ink);
+  min-height: 1.4em;
+  margin: 0 !important;
+  line-height: 1.25 !important;
+}
+
+.pv-card-price.is-loading {
+  color: var(--color-ink-soft);
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 1.05rem !important;
+}
+
+.pv-card-price.is-link {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 1.05rem !important;
+  text-decoration: underline;
+  color: var(--color-brand-dark);
+}
+
+.pv-card-price-note {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.72rem !important;
+  color: var(--color-ink-soft);
+  margin-top: 2px !important;
+}
+
+.pv-card-link {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.85rem !important;
+  color: var(--color-brand-dark);
+  text-decoration: underline;
+  margin-top: var(--space-2) !important;
+}
+
+.pv-card-link:hover { color: var(--color-brand); }
+
+/* --- Antallsvelger --- */
+.pv-qty {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-canvas);
+  border-top: 1px solid var(--color-line);
+}
+
+.pv-qty-btn {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-size: 1.2rem !important;
+  line-height: 1;
+  cursor: pointer;
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+
+.pv-qty-btn:hover { background: var(--color-brand-tint); border-color: var(--color-brand); }
+.pv-qty-btn:focus-visible { outline: 2px solid var(--color-brand-dark); outline-offset: 1px; }
+
+.pv-qty-value {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 1.3rem !important;
+  font-weight: 600;
+  min-width: 24px;
+  text-align: center;
+  margin: 0 !important;
+  line-height: 1.3 !important;
+}
+
+.pv-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px var(--space-4);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1rem !important;
+  color: #fff;
+  background: var(--color-ink);
+  line-height: 1.3 !important;
+  transition: background var(--transition-fast);
+}
+
+.pv-card:hover .pv-cta { background: var(--color-brand-dark); }
+.pv-cta svg { width: 15px; height: 15px; }
+
+.pv-card.is-added .pv-cta { background: var(--color-brand); }
+.pv-card.is-added .pv-cta-label::after { content: "Lagt i kurven ✓"; }
+.pv-card.is-added .pv-cta-label { font-size: 0; }
+.pv-card.is-added .pv-cta-label::after { font-size: 0.88rem; }
+
+/* --- Tomt søkeresultat --- */
+.pv-empty {
+  color: var(--color-ink-soft);
+  font-size: 0.95rem;
+  padding: var(--space-5) 0;
+}
