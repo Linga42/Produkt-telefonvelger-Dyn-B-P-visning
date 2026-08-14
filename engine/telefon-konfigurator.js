@@ -411,15 +411,11 @@ window.PV.Telefon = (function () {
       var egenId = ++bildeForesporselId;
       var bilder = (typeof MODELLBILDER !== 'undefined') ? MODELLBILDER : {};
       var altTekst = variant.modell + ' ' + variant.farge;
-
-      if (variant.bilde) {
-        visBilde(variant.bilde, altTekst);
-        return;
-      }
+      var fallback = variant.bilde || bilder[valg.modell] || '';
 
       var pid = produktId(variant.url);
       if (!pid || !variant.url) {
-        visBilde(bilder[valg.modell] || '', altTekst);
+        visBilde(fallback, altTekst);
         return;
       }
 
@@ -432,10 +428,11 @@ window.PV.Telefon = (function () {
         })
         .catch(function () {
           if (egenId !== bildeForesporselId) return;
-          /* Same-origin-feil (lokal testing) eller intet bilde funnet
-             på siden - fall tilbake til modellens statiske
-             forhåndsvisning hvis den finnes, ellers skjul stille. */
-          visBilde(bilder[valg.modell] || '', altTekst);
+          /* Same-origin-feil (lokal testing/GitHub Pages-forhåndsvisning)
+             eller intet bilde funnet på siden - fall tilbake til
+             manuell CSV-overstyring, deretter modellens statiske
+             forhåndsvisning, ellers skjul stille. */
+          visBilde(fallback, altTekst);
         });
     }
 
